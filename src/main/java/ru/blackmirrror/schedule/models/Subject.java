@@ -17,6 +17,22 @@ public class Subject {
     @ManyToMany(mappedBy = "subjects", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<User> teachers = new HashSet<>();
 
+    public String getShortName() {
+        StringBuilder result = new StringBuilder();
+        boolean capitalizeNext = true;
+
+        for (char c : this.name.toCharArray()) {
+            if (Character.isWhitespace(c)) {
+                capitalizeNext = true;
+            } else if (capitalizeNext) {
+                result.append(Character.toUpperCase(c));
+                capitalizeNext = false;
+            }
+        }
+
+        return result.toString();
+    }
+
     public Long getId() {
         return id;
     }

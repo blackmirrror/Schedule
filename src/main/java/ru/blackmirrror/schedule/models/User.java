@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -44,6 +45,15 @@ public class User implements UserDetails {
     )
     private Set<Group> groups = new HashSet<>();
 
+
+    public Group getGroup() {
+        Optional<Group> optionalGroup = this.getGroups().stream().findFirst();
+        return optionalGroup.orElse(null);
+    }
+
+    public String getInitials() {
+        return lastName + " " + firstName.charAt(0) + "." + middleName.charAt(0) + ".";
+    }
 
     public boolean groupsIsNull() {
         return groups == null;

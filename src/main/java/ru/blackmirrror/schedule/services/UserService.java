@@ -83,4 +83,8 @@ public class UserService {
     public User getUserById(Long id) {
         return userRepository.getById(id);
     }
+
+    public List<User> getTeachers() {
+        return userRepository.findByRolesContains(Role.TEACHER);
+    }
 }

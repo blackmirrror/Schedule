@@ -17,8 +17,8 @@
     <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a href="/">
-                <span class="navbar-brand mb-0 h1">Расписание</span>
+            <a href="/schedule">
+                <span class="navbar-brand mb-0 h1">Scheduler</span>
             </a>
             <div class="dropdown text-end">
                 <#if user.isAdmin()>
@@ -30,19 +30,16 @@
                     </a>
                 </#if>
                 <#if user.isStudent()>
-                    <a href="/">
+                    <a href="/schedule">
                         <span class="navbar-brand mb-0 h1">Расписание</span>
-                    </a>
-                    <a href="/">
-                        <span class="navbar-brand mb-0 h1">Преподаватели</span>
                     </a>
                 </#if>
                 <#if user.isTeacher()>
-                    <a href="/">
+                    <a href="/schedule">
                         <span class="navbar-brand mb-0 h1">Расписание</span>
                     </a>
                 </#if>
-                <a href="/">
+                <a href="/curriculum">
                     <span class="navbar-brand mb-0 h3">Учебный план</span>
                 </a>
                 <#if user.email??>

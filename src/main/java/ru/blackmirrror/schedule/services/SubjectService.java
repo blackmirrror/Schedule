@@ -20,6 +20,10 @@ public class SubjectService {
         return subjectRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 
+    public Subject findById(Long id) {
+        return subjectRepository.findSubjectById(id);
+    }
+
     public void createSubject(Subject subject) {
         subjectRepository.save(subject);
     }
